@@ -29,6 +29,11 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- MathJax for equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
 </head>
 <body>
 
@@ -207,13 +212,24 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
         <!-- Key Components -->
         <div class="content has-text-justified">
           <p style="margin-left:20px;">
-            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Gaussian Modeling:</b> We assume features conditioned on class <i>k</i> follow a Gaussian distribution with shared covariance, enabling closed-form inference.
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Gaussian Modeling:</b> We assume features conditioned on class \(k\) follow a Gaussian distribution with shared covariance:
           </p>
-          <p style="margin-left:20px;">
-            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Knowledge Bank:</b> We maintain class-wise knowledge banks to store high-confidence samples, correcting likelihood bias in online settings.
+          <p style="text-align:center; margin:15px 0;">
+            \[\mathbb{P}_{i,k} = \mathbb{P}(\mathbf{x}_i|y_k) = \mathcal{N}(\mathbf{x}_i; \boldsymbol{\mu}_k, \boldsymbol{\Sigma}) = \frac{1}{\sqrt{(2\pi)^d|\boldsymbol{\Sigma}|}} \exp\left(-\frac{1}{2}(\mathbf{x}_i - \boldsymbol{\mu}_k)^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x}_i - \boldsymbol{\mu}_k)\right)\]
           </p>
+
           <p style="margin-left:20px;">
-            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Closed-form Solution:</b> Our method derives one-pass, sub-iteration-free inference without backpropagation.
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Closed-form Solution:</b> We derive a one-pass, sub-iteration-free label estimator:
+          </p>
+          <p style="text-align:center; margin:15px 0;">
+            \[z^*_{i,k} = \frac{\hat{y}_{i,k} \cdot \exp\left(\tilde{y}_{i,k} + \sum_{j \in \mathcal{B}_k} w_{ij}\hat{y}_{j,k}\right)}{\sum_{k=1}^{K} \hat{y}_{i,k} \cdot \exp\left(\tilde{y}_{i,k} + \sum_{j \in \mathcal{B}_k} w_{ij}\hat{y}_{j,k}\right)}\]
+          </p>
+
+          <p style="margin-left:20px;">
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Knowledge Bank:</b> Class means are progressively updated using high-confidence samples:
+          </p>
+          <p style="text-align:center; margin:15px 0;">
+            \[\boldsymbol{\mu}^*_k \leftarrow \alpha \boldsymbol{\mu}'_k + (1-\alpha)\hat{\boldsymbol{\mu}}_k, \quad \text{where} \quad \boldsymbol{\mu}'_k = \frac{\sum_{j \in \mathcal{B}_k} \hat{y}_{j,k} \mathbf{x}_j}{\sum_{j \in \mathcal{B}_k} \hat{y}_{j,k}}\]
           </p>
         </div>
 
