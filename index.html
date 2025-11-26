@@ -221,44 +221,6 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
             <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Closed-form Update:</b> One-pass; efficient; no iteration or fine-tuning required.
           </p>
         </div>
-<!-- 
-        <!-- Online ADAPT -->
-        <h3 class="title is-4" style="margin-top:2rem;">Online ADAPT</h3>
-        <div class="content has-text-justified">
-          <p><b>Backpropagation-free TTA via GDA:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[\tilde{y}_{i,k} = \mathbf{w}_k^\top \mathbf{x}_i + b_k, \quad \text{where} \quad \mathbf{w}_k = \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_k, \quad b_k = -\frac{1}{2}\boldsymbol{\mu}_k^\top \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}_k\]
-          </p>
-          
-          <p><b>Correcting Online Likelihood Bias via Constructed Knowledge Banks:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[\mathcal{L}_{\text{online}}(z_i, \boldsymbol{\mu}, \boldsymbol{\Sigma}) = -z_i^\top \log \mathbb{P}_i + \mathcal{R}(z_i; \hat{y}_i) + \mathcal{R}(z_i; \mathcal{B})\]
-          </p>
-
-          <p><b>One-pass distribution estimation:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[\boldsymbol{\mu}^*_k \leftarrow \alpha \boldsymbol{\mu}'_k + (1-\alpha)\hat{\boldsymbol{\mu}}_k, \quad \text{where} \quad \boldsymbol{\mu}'_k = \frac{\sum_{j \in \mathcal{B}_k} \hat{y}_{j,k} \mathbf{x}_j}{\sum_{j \in \mathcal{B}_k} \hat{y}_{j,k}}\]
-          </p>
-
-          <p><b>Closed-form Solution without Sub-iterations:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[z^*_{i,k} = \frac{\hat{y}_{i,k} \cdot \exp\left(\tilde{y}_{i,k} + \sum_{j \in \mathcal{B}_k} w_{ij}\hat{y}_{j,k}\right)}{\sum_{k=1}^{K} \hat{y}_{i,k} \cdot \exp\left(\tilde{y}_{i,k} + \sum_{j \in \mathcal{B}_k} w_{ij}\hat{y}_{j,k}\right)}\]
-          </p>
-        </div>
-
-        <!-- Transductive ADAPT -->
-        <h3 class="title is-4" style="margin-top:2rem;">Transductive ADAPT</h3>
-        <div class="content has-text-justified">
-          <p><b>Extend the online regularized objective to a transductive objective:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[\mathcal{L}_{\text{trans}}(z, \boldsymbol{\mu}, \boldsymbol{\Sigma}) = -\sum_{i=1}^{N} z_i^\top \log \mathbb{P}_i + \sum_{i=1}^{N} \mathcal{R}(z_i; \hat{y}_i) + \sum_{i=1}^{N} \mathcal{R}(z_i; \mathcal{B})\]
-          </p>
-
-          <p><b>Class means \(\boldsymbol{\mu}_k\) estimation:</b></p>
-          <p style="text-align:center; margin:15px 0;">
-            \[\boldsymbol{\mu}'_k = \frac{\sum_{i=1}^{N} \hat{y}_{i,k} \mathbf{x}_i + \sum_{j \in \mathcal{B}_k} \hat{y}_{j,k} \mathbf{x}_j}{\sum_{i=1}^{N} \hat{y}_{i,k} + \sum_{j \in \mathcal{B}_k} \hat{y}_{j,k}}, \quad \alpha = \frac{\sum_{i=1}^{N} \hat{y}_{i,k} + \sum_{j \in \mathcal{B}_k} \hat{y}_{j,k}}{\sum_{i=1}^{N} \hat{y}_{i,k} + \sum_{j \in \mathcal{B}_k} \hat{y}_{j,k} + \beta}\]
-          </p>
-        </div> -->
 
         <!-- Algorithm figures side by side -->
         <div class="columns is-centered" style="margin-top: 1.5rem;">
