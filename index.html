@@ -156,19 +156,17 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
             <b>Test-Time Adaptation (TTA)</b> enhances zero-shot robustness under distribution shifts by adapting to unlabeled test data during inference. However, existing methods face two key limitations: (1) most rely on <b>backpropagation or iterative optimization</b>, limiting scalability and real-time deployment; (2) they <b>lack explicit modeling of class-conditional feature distributions</b>, leading to unstable decision boundaries.
           </p>
         </div>
-        
         <!-- Two figures side by side -->
         <div class="columns is-centered" style="margin-top: 1.5rem;">
-          <div class="column is-half has-text-centered">
-            <img src="./static/images/Backpropagation-required Online TTA.png" style="max-width:100%; height:auto;">
+          <div class="column is-half has-text-centered" style="display:flex; flex-direction:column; align-items:center;">
+            <img src="./static/images/Backpropagation-required Online TTA.png" style="height:200px; width:auto;">
             <p style="font-size:0.9rem; margin-top:8px;">(a) Backpropagation-required Online TTA</p>
           </div>
-          <div class="column is-half has-text-centered">
-            <img src="./static/images/GDA-based Transductive TTA.png" style="max-width:100%; height:auto;">
+          <div class="column is-half has-text-centered" style="display:flex; flex-direction:column; align-items:center;">
+            <img src="./static/images/GDA-based Transductive TTA.png" style="height:200px; width:auto;">
             <p style="font-size:0.9rem; margin-top:8px;">(b) GDA-based Transductive TTA</p>
           </div>
         </div>
-
         <div class="content has-text-justified" style="margin-top: 1.5rem;">
           <p>
             We propose <b>ADAPT</b>, a backpropagation-free and distribution-aware TTA framework that seamlessly supports both <b>online</b> and <b>transductive</b> adaptation settings.
