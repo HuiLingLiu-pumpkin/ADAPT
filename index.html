@@ -182,7 +182,57 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
         <!-- Comparison Table -->
         <div class="has-text-centered" style="margin-top: 1.5rem;">
           <img src="./static/images/Table_Comparison with existing TTA.png" style="max-width:90%; height:auto;">
-          <p style="font-size:0.9rem; margin-top:8px;">Comparison with existing TTA methods. ADAPT is the only method that achieves BP-Free, Distribution-Aware, and supports both Online and Transductive settings.</p>
+          <p style="font-size:0.9rem; margin-top:8px;">Comparison with existing TTA methods. ADAPT is the method that achieves BP-Free, Distribution-Aware, and supports both Online and Transductive settings.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method Section -->
+<section class="section py-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><img src="./static/images/book.gif" style="height:55px; vertical-align:middle; margin-right:8px;">Method</h2>
+        
+        <div class="content has-text-justified">
+          <p>
+            We propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<b>A</b>ware and back<b>P</b>ropagation-free <b>T</b>est-time adaptation method. Our key idea is to reframe TTA as a <b>Gaussian probabilistic inference</b> task by modeling class-conditional likelihoods.
+          </p>
+        </div>
+
+        <!-- Key Components -->
+        <div class="content has-text-justified">
+          <p style="margin-left:20px;">
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Gaussian Modeling:</b> We assume features conditioned on class <i>k</i> follow a Gaussian distribution with shared covariance, enabling closed-form inference.
+          </p>
+          <p style="margin-left:20px;">
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Knowledge Bank:</b> We maintain class-wise knowledge banks to store high-confidence samples, correcting likelihood bias in online settings.
+          </p>
+          <p style="margin-left:20px;">
+            <i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i><b>Closed-form Solution:</b> Our method derives one-pass, sub-iteration-free inference without backpropagation.
+          </p>
+        </div>
+
+        <!-- Algorithm figures side by side -->
+        <div class="columns is-centered" style="margin-top: 1.5rem;">
+          <div class="column is-half has-text-centered" style="display:flex; flex-direction:column; align-items:center;">
+            <img src="./static/images/Algorithm_1 Online.png" style="max-width:95%; height:auto; border:1px solid #ddd; padding:5px;">
+            <p style="font-size:0.9rem; margin-top:8px;">Algorithm 1: Online TTA</p>
+          </div>
+          <div class="column is-half has-text-centered" style="display:flex; flex-direction:column; align-items:center;">
+            <img src="./static/images/Algorithm_2 Transductive.png" style="max-width:95%; height:auto; border:1px solid #ddd; padding:5px;">
+            <p style="font-size:0.9rem; margin-top:8px;">Algorithm 2: Transductive TTA</p>
+          </div>
+        </div>
+
+        <div class="content has-text-justified" style="margin-top: 1.5rem;">
+          <p>
+            Notably, both procedures are fully <b>optimization-free</b>, relying on one-pass closed-form updates for efficient adaptation. ADAPT supports both <b>online</b> (streaming, one sample at a time) and <b>transductive</b> (full test set available) settings.
+          </p>
         </div>
 
       </div>
