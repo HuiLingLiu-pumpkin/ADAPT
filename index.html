@@ -145,6 +145,48 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
 </section>
 
 
+<!-- Introduction Section -->
+<section class="section py-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b>Test-Time Adaptation (TTA)</b> enhances zero-shot robustness under distribution shifts by adapting to unlabeled test data during inference. However, existing methods face two key limitations: (1) most rely on <b>backpropagation or iterative optimization</b>, limiting scalability and real-time deployment; (2) they <b>lack explicit modeling of class-conditional feature distributions</b>, leading to unstable decision boundaries.
+          </p>
+        </div>
+        
+        <!-- Two figures side by side -->
+        <div class="columns is-centered" style="margin-top: 1.5rem;">
+          <div class="column is-half has-text-centered">
+            <img src="./static/images/Backpropagation-required Online TTA.png" style="max-width:100%; height:auto;">
+            <p style="font-size:0.9rem; margin-top:8px;">(a) Backpropagation-required Online TTA</p>
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="./static/images/GDA-based Transductive TTA.png" style="max-width:100%; height:auto;">
+            <p style="font-size:0.9rem; margin-top:8px;">(b) GDA-based Transductive TTA</p>
+          </div>
+        </div>
+
+        <div class="content has-text-justified" style="margin-top: 1.5rem;">
+          <p>
+            We propose <b>ADAPT</b>, a backpropagation-free and distribution-aware TTA framework that seamlessly supports both <b>online</b> and <b>transductive</b> adaptation settings.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="has-text-centered" style="margin-top: 1.5rem;">
+          <img src="./static/images/Table_Comparison with existing TTA.png" style="max-width:85%; height:auto;">
+          <p style="font-size:0.9rem; margin-top:8px;">Comparison with existing TTA methods. ADAPT is the only method that achieves BP-Free, Distribution-Aware, and supports both Online and Transductive settings.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
