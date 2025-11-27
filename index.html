@@ -262,18 +262,24 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
         <!-- Carousel for Tables -->
         <div class="carousel-container" style="position:relative; width:100%; margin-top:1.5rem;">
           <!-- Slides -->
-          <div class="carousel-slides" style="position:relative; overflow:hidden;">
-            <div class="carousel-slide" id="slide1" style="display:block; text-align:center;">
-              <img src="./static/images/Table_Task 1 natural distribution shift.png" style="max-width:100%; height:auto;">
-              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 1:</b> Natural Distribution Shift</p>
+          <div class="carousel-slides" style="position:relative; overflow:hidden; height:450px;">
+            <div class="carousel-slide" id="slide1" style="display:flex; justify-content:center; align-items:center; height:100%;">
+              <div style="text-align:center;">
+                <img src="./static/images/Table_Task 1 natural distribution shift.png" style="max-width:100%; max-height:400px; height:auto;">
+                <p style="font-size:0.9rem; margin-top:8px;"><b>Task 1:</b> Natural Distribution Shift</p>
+              </div>
             </div>
-            <div class="carousel-slide" id="slide2" style="display:none; text-align:center;">
-              <img src="./static/images/Table_Task2 corruption robustness.png" style="max-width:100%; height:auto;">
-              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 2:</b> Corruption Robustness</p>
+            <div class="carousel-slide" id="slide2" style="display:none; justify-content:center; align-items:center; height:100%;">
+              <div style="text-align:center;">
+                <img src="./static/images/Table_Task2 corruption robustness.png" style="max-width:100%; max-height:400px; height:auto;">
+                <p style="font-size:0.9rem; margin-top:8px;"><b>Task 2:</b> Corruption Robustness</p>
+              </div>
             </div>
-            <div class="carousel-slide" id="slide3" style="display:none; text-align:center;">
-              <img src="./static/images/Table_Task3 fine-grained categorization.png" style="max-width:100%; height:auto;">
-              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 3:</b> Fine-Grained Categorization</p>
+            <div class="carousel-slide" id="slide3" style="display:none; justify-content:center; align-items:center; height:100%;">
+              <div style="text-align:center;">
+                <img src="./static/images/Table_Task3 fine-grained categorization.png" style="max-width:100%; max-height:400px; height:auto;">
+                <p style="font-size:0.9rem; margin-top:8px;"><b>Task 3:</b> Fine-Grained Categorization</p>
+              </div>
             </div>
           </div>
           
@@ -296,7 +302,7 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
                 document.getElementById('btn' + i).style.backgroundColor = '';
                 document.getElementById('btn' + i).style.color = '';
               }
-              document.getElementById('slide' + n).style.display = 'block';
+              document.getElementById('slide' + n).style.display = 'flex';
               document.getElementById('btn' + n).style.backgroundColor = '#3273dc';
               document.getElementById('btn' + n).style.color = 'white';
             }
@@ -312,10 +318,9 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
         </div>
 
         <!-- Visualization -->
-        <h3 class="title is-4" style="margin-top:2.5rem;">Visualization of Decision Boundaries</h3>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified" style="margin-top:2.5rem;">
           <p>
-            We visualize the decision boundaries of different TTA methods on ImageNet-A. CLIP, TPT, and TDA rely on feature similarity without explicit class distribution modeling, leading to irregular and unstable boundaries. In contrast, <b>ADAPT</b> builds a Gaussian-based model that explicitly estimates class distributions, yielding more compact clusters and smoother boundaries.
+            <b>Visualization of Decision Boundaries:</b> We visualize the decision boundaries of different TTA methods on ImageNet-A. CLIP, TPT, and TDA rely on feature similarity without explicit class distribution modeling, leading to irregular and unstable boundaries. In contrast, <b>ADAPT</b> builds a Gaussian-based model that explicitly estimates class distributions, yielding more compact clusters and smoother boundaries.
           </p>
         </div>
         <div class="has-text-centered" style="margin-top:1rem;">
@@ -325,20 +330,6 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
 
       </div>
     </div>
-  </div>
-</section>
-
-
-  <div class="container is-max-desktop content">
-    <h2 class="title"><img src="./static/images/telescope.png" style="height:45px; vertical-align:middle; margin-right:8px;">BibTeX</h2>
-    If you find our work useful, please consider citing:
-    <pre><code>@article{zhang2025backpropagation,
-  title={Backpropagation-Free Test-Time Adaptation via Probabilistic Gaussian Alignment},
-  author={Zhang, Youjia and Kim, Youngeun and Choi, Young-Geun and Kim, Hongyeob and Liu, Huiling and Hong, Sungeun},
-  journal={arXiv preprint arXiv:2508.15568},
-  year={2025}
-}
-</code></pre>
   </div>
 </section>
 
