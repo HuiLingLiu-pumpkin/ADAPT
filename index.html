@@ -246,6 +246,89 @@ In this paper, we propose <b>ADAPT</b>, an <b>A</b>dvanced <b>D</b>istribution-<
 </section>
 
 
+<!-- Experimental Results Section -->
+<section class="section py-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><img src="./static/images/bar-chart.gif" style="height:55px; vertical-align:middle; margin-right:8px;">Experimental Results</h2>
+        
+        <div class="content has-text-justified">
+          <p>
+            We evaluate ADAPT on three tasks: <b>natural distribution shift</b>, <b>corruption robustness</b>, and <b>fine-grained categorization</b>. ADAPT achieves state-of-the-art performance across all benchmarks in both online and transductive settings.
+          </p>
+        </div>
+
+        <!-- Carousel for Tables -->
+        <div class="carousel-container" style="position:relative; width:100%; margin-top:1.5rem;">
+          <!-- Slides -->
+          <div class="carousel-slides" style="position:relative; overflow:hidden;">
+            <div class="carousel-slide" id="slide1" style="display:block; text-align:center;">
+              <img src="./static/images/Table_Task 1 natural distribution shift.png" style="max-width:100%; height:auto;">
+              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 1:</b> Natural Distribution Shift</p>
+            </div>
+            <div class="carousel-slide" id="slide2" style="display:none; text-align:center;">
+              <img src="./static/images/Table_Task2 corruption robustness.png" style="max-width:100%; height:auto;">
+              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 2:</b> Corruption Robustness</p>
+            </div>
+            <div class="carousel-slide" id="slide3" style="display:none; text-align:center;">
+              <img src="./static/images/Table_Task3 fine-grained categorization.png" style="max-width:100%; height:auto;">
+              <p style="font-size:0.9rem; margin-top:8px;"><b>Task 3:</b> Fine-Grained Categorization</p>
+            </div>
+          </div>
+          
+          <!-- Navigation Buttons -->
+          <div style="text-align:center; margin-top:15px;">
+            <button onclick="showSlide(1)" class="button is-small is-rounded" id="btn1" style="margin:0 5px; background-color:#3273dc; color:white;">1</button>
+            <button onclick="showSlide(2)" class="button is-small is-rounded" id="btn2" style="margin:0 5px;">2</button>
+            <button onclick="showSlide(3)" class="button is-small is-rounded" id="btn3" style="margin:0 5px;">3</button>
+          </div>
+          
+          <!-- Auto-play Script -->
+          <script>
+            let currentSlide = 1;
+            const totalSlides = 3;
+            
+            function showSlide(n) {
+              currentSlide = n;
+              for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById('slide' + i).style.display = 'none';
+                document.getElementById('btn' + i).style.backgroundColor = '';
+                document.getElementById('btn' + i).style.color = '';
+              }
+              document.getElementById('slide' + n).style.display = 'block';
+              document.getElementById('btn' + n).style.backgroundColor = '#3273dc';
+              document.getElementById('btn' + n).style.color = 'white';
+            }
+            
+            function nextSlide() {
+              currentSlide = currentSlide % totalSlides + 1;
+              showSlide(currentSlide);
+            }
+            
+            // Auto-play every 4 seconds
+            setInterval(nextSlide, 4000);
+          </script>
+        </div>
+
+        <!-- Visualization -->
+        <h3 class="title is-4" style="margin-top:2.5rem;">Visualization of Decision Boundaries</h3>
+        <div class="content has-text-justified">
+          <p>
+            We visualize the decision boundaries of different TTA methods on ImageNet-A. CLIP, TPT, and TDA rely on feature similarity without explicit class distribution modeling, leading to irregular and unstable boundaries. In contrast, <b>ADAPT</b> builds a Gaussian-based model that explicitly estimates class distributions, yielding more compact clusters and smoother boundaries.
+          </p>
+        </div>
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <img src="./static/images/decision_boundary_v4.png" style="max-width:95%; height:auto;">
+          <p style="font-size:0.9rem; margin-top:8px;">Visualization of decision boundaries on ImageNet-A. Colors indicate different classes.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <div class="container is-max-desktop content">
     <h2 class="title"><img src="./static/images/telescope.png" style="height:45px; vertical-align:middle; margin-right:8px;">BibTeX</h2>
     If you find our work useful, please consider citing:
